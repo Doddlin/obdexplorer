@@ -3,14 +3,26 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www && npm run css-watch",
+    "dev": "nodemon ./app.js",
+    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify",
+    "css-build": "node-sass --omit-source-map-url public/sass/styles.scss public/stylesheets/style.css",
+    "css-watch": "npm run css-build -- --watch"
   },
   "dependencies": {
+    "bulma": "^0.8.2",
+    "bulma-start": "0.0.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.3"
   }
 }
