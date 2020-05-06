@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www && npm run css-watch",
+    "start": "node ./bin/www && npm run watch-css",
     "dev": "nodemon ./app.js",
     "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify",
-    "css-build": "node-sass --omit-source-map-url public/sass/styles.scss public/stylesheets/style.css",
-    "css-watch": "npm run css-build -- --watch"
+    "build-css": "node-sass --omit-source-map-url public/sass/styles.scss public/stylesheets/style.css",
+    "watch-css": "nodemon -e sass -x \"npm run build-css\""
   },
   "dependencies": {
     "bulma": "^0.8.2",
@@ -18,6 +18,7 @@
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "pg-promise": "^10.5.3",
     "pug": "^2.0.4"
   },
   "devDependencies": {

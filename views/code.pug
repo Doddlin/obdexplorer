@@ -1,0 +1,14 @@
+extends layout
+
+block layout-content
+  div.container
+    .columns
+        .column.is-half
+            p code = #{title}
+
+        .column.is-half
+            p.title Add error codes below
+            form(method='POST' action='/register')
+                .field
+                    .control
+                        input(class="input is-primary", type="text", placeholder="Enter Code")

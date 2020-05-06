@@ -1,15 +1,22 @@
 extends layout
 
 block layout-content
-    nav.navbar
-        div.navbar-brand
-            a: href="http://www.dbirkemalm.com").navbar-item 
-            img(src="icons/icon.png", alt="icon")
-    div.hero
-      div.container
-        h3 Making the Best
-        h1 Food For Devs
-      span.Details Access the WHATABYTE Team Portal
-    div.NavButtons
-      a(href="/user")
-          span.button Just dive in!
+  section.section
+    div.container
+      div.columns
+        div.column.is-half
+          h3.has-text-primary.is-size-2 Welcome to OBD Explorer.
+          p Your wireless tool to connect to your car and enable efficient DIY repairs.
+          .tile.notification.is-primary
+            h4.title.is-3 Hello
+            div.button
+        .column.is-half
+          h3.has-text-primary.is-size-2 Start here:
+          p Below you will see the accessible devices
+          panel
+            p.panel-heading Devices
+            a(href="#").panel-block
+              span.icon.is-left
+                i.fas.fa-link 
+              p Device 1
+            a(href="#").panel-block Device 2
