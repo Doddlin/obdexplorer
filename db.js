@@ -1,10 +1,15 @@
-var pgp = require('pg-promise')(/* options */)
-var db = pgp('postgres://postgres:ringvagen@localhost:5432/obdexplore')
+const sqlite3 = require('sqlite3').verbose();
 
-db.one('SELECT $1 AS value', 123)
-  .then(function (data) {
-    console.log('DATA:', data.value)
-  })
-  .catch(function (error) {
-    console.log('ERROR:', error)
-  })
+let db = new sqlite3.Database('./db/codes.db', sqlite3.OPEN_READWRITE, (err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Connected to the in-memory SQlite database.');
+});
+
+db.close((err) => {
+  if (err) {
+    return console.error(err.message);
+  }
+  console.log('Close the database connection.');
+});

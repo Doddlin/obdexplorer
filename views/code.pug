@@ -4,11 +4,14 @@ block layout-content
   div.container
     .columns
         .column.is-half
-            p code = #{title}
+            p code = #{status}
 
         .column.is-half
             p.title Add error codes below
-            form(method='POST' action='/register')
+            form(method='POST' action='/addcode')
                 .field
                     .control
                         input(class="input is-primary", type="text", placeholder="Enter Code")
+                .field
+                    .control
+                        input(class="button is-primary" type="submit", value="Save Code")
